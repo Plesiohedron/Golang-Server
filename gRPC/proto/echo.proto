@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option go_package = "GoCourse/proto";
+
+package proto;
+
+service AccountService {
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+  rpc GetAccount(GetAccountRequest) returns (GetAccountResponse);
+  rpc UpdateBalance(UpdateBalanceRequest) returns (UpdateBalanceResponse);
+  rpc UpdateAccountName(UpdateAccountNameRequest) returns (UpdateAccountNameResponse);
+  rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse);
+}
+
+message CreateAccountRequest {
+  string name = 1;
+  int32 balance = 2;
+}
+
+message CreateAccountResponse {
+  string message = 1;
+}
+
+message GetAccountRequest {
+  string name = 1;
+}
+
+message GetAccountResponse {
+  string name = 1;
+  int32 balance = 2;
+}
+
+message UpdateBalanceRequest {
+  string name = 1;
+  int32 balance = 2;
+}
+
+message UpdateBalanceResponse {
+  string message = 1;
+}
+
+message UpdateAccountNameRequest {
+  string old_name = 1;
+  string new_name = 2;
+}
+
+message UpdateAccountNameResponse {
+  string message = 1;
+}
+
+message DeleteAccountRequest {
+  string name = 1;
+}
+
+message DeleteAccountResponse {
+  string message = 1;
+}
